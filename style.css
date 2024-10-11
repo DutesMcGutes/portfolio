@@ -1,6 +1,127 @@
-body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
-    font: 100%/1.5 system-ui;
-  }
+/* Global Styles */
+
+/* Define an accent color for the entire document */
+:root {
+  --color-accent: oklch(65% 50% 0); /* Feel free to adjust this color */
+}
+
+/* Apply accent color to elements by default */
+html, body {
+  accent-color: var(--color-accent); /* Inherit accent color across the page */
+}
+
+/* Step 2: Navigation Styling */
+
+/* Navigation styles */
+nav {
+  display: flex;                 /* Flexbox layout */
+  justify-content: space-between;/* Space out links */
+  padding: 1rem 0;               /* Add padding */
+  margin-bottom: 1rem;           /* Add margin to separate from content below */
+  border-bottom: 1px solid oklch(80% 3% 200); /* Cool gray border */
+}
+
+nav a {
+  flex: 1;                       /* Links take up equal space */
+  text-align: center;            /* Center text inside link */
+  text-decoration: none;         /* Remove underline */
+  padding: 0.5em;                /* Add spacing */
+  color: inherit;                /* Inherit text color */
+}
+
+/* Highlight the current page with a thick bottom border */
+nav a.current {
+  font-weight: bold;             /* Bold for current link */
+  border-bottom: 0.4em solid oklch(80% 3% 200); /* Cool gray for current link */
+  padding-bottom: 0.1em;         /* Adjust padding to balance height */
+}
+
+/* Hover state */
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent); /* Accent color on hover */
+  background-color: #f0f0f0;     /* Optional light gray background on hover */
+}
+
+/* Step 3: Form Layout with Subgrid */
+
+/* Inherit font for form controls */
+form input, form textarea, form button {
+  font: inherit; /* Inherit the font from the body */
+}
+
+/* Enable grid layout for the form */
+form {
+  display: grid;
+  grid-template-columns: auto 1fr; /* Two columns: label and input field */
+  gap: 1em;                       /* Add space between form controls */
+  align-items: start;             /* Align items at the start of the rows */
+  margin-bottom: 2rem;            /* Optional margin below the form */
+}
+
+/* Make the label a grid container itself with subgrid */
+form label {
+  display: grid;
+  grid-template-columns: subgrid; /* Use the form's grid for the label */
+  grid-column: 1 / -1;            /* Make the label span both columns */
+  margin-bottom: 0.5em;           /* Add spacing below labels */
+}
+
+/* Input fields should be in the second column */
+form input, form textarea {
+  grid-column: 2;                 /* Place inputs in the second column */
+  width: 100%;                    /* Make sure inputs take up full width */
+  padding: 0.5em;                 /* Add padding for usability */
+  box-sizing: border-box;          /* Ensure padding is included in width */
+}
+
+/* Make the submit button span the entire row */
+form button {
+  grid-column: 1 / -1;            /* Make button span across both columns */
+}
+
+/* Step 4: Projects Page Styling */
+
+/* Apply responsive grid to projects */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Flexible grid layout */
+  gap: 1rem;  /* Add space between articles */
+}
+
+/* Apply subgrid to align article contents */
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;  /* Align rows within the grid */
+  grid-row: span 3;             /* Make each article span 3 rows */
+  margin: 0;                    /* Remove margin for consistent alignment */
+}
+
+.projects h2 {
+  margin: 0;  /* Reduce margin on headings */
+}
+
+/* Step 4.4: Headings Styling */
+
+/* Make h1 significantly larger than h2 */
+h1 {
+  font-size: 400%;  /* Make h1 significantly larger than h2 */
+}
+
+/* Add consistent styling for all heading levels */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;           /* Smaller line height for headings */
+  text-wrap: balance;         /* Prevent uneven lines */
+}
+
+/* Optional: Accent color for other elements */
+button, input[type="submit"] {
+  background-color: var(--color-accent); /* Accent-colored buttons */
+  border: none;
+  color: white;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: oklch(60% 50% 0); /* Darker shade for hover */
+}
