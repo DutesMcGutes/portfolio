@@ -1,5 +1,3 @@
-/* Global Styles */
-
 /* Define an accent color for the entire document */
 :root {
   --color-accent: oklch(65% 50% 0); /* Feel free to adjust this color */
@@ -9,8 +7,6 @@
 html, body {
   accent-color: var(--color-accent); /* Inherit accent color across the page */
 }
-
-/* Step 2: Navigation Styling */
 
 /* Navigation styles */
 nav {
@@ -42,7 +38,7 @@ nav a:hover {
   background-color: #f0f0f0;     /* Optional light gray background on hover */
 }
 
-/* Step 3: Form Layout with Subgrid */
+/* Form Layout with Subgrid */
 
 /* Inherit font for form controls */
 form input, form textarea, form button {
@@ -79,7 +75,7 @@ form button {
   grid-column: 1 / -1;            /* Make button span across both columns */
 }
 
-/* Step 4: Projects Page Styling */
+/* Projects Page Styling */
 
 /* Apply responsive grid to projects */
 .projects {
@@ -100,7 +96,7 @@ form button {
   margin: 0;  /* Reduce margin on headings */
 }
 
-/* Step 4.4: Headings Styling */
+/* Headings Styling */
 
 /* Make h1 significantly larger than h2 */
 h1 {
@@ -113,7 +109,7 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;         /* Prevent uneven lines */
 }
 
-/* Optional: Accent color for other elements */
+/* Accent color for other elements */
 button, input[type="submit"] {
   background-color: var(--color-accent); /* Accent-colored buttons */
   border: none;
