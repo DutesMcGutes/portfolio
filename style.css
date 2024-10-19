@@ -1,6 +1,6 @@
 /* Define an accent color for the entire document */
 :root {
-  --color-accent: oklch(65% 50% 0); /* Feel free to adjust this color */
+  --color-accent: oklch(65% 50% 0); /* Adjust this color as needed */
 }
 
 /* Apply accent color to elements by default */
@@ -38,60 +38,14 @@ nav a:hover {
   background-color: #f0f0f0;     /* Optional light gray background on hover */
 }
 
-/* Form Layout with Grid */
-
-/* Inherit font for form controls */
-form input, form textarea, form button {
-  font: inherit; /* Inherit the font from the body */
-}
-
-/* Enable grid layout for the form */
-form {
-  display: grid;
-  grid-template-columns: auto 1fr; /* Two columns: label and input field */
-  gap: 1em;                       /* Add space between form controls */
-  align-items: start;             /* Align items at the start of the rows */
-  margin-bottom: 2rem;            /* Optional margin below the form */
-}
-
-/* Label styling */
-form label {
-  grid-column: 1;                /* Place labels in the first column */
-  margin-bottom: 0.5em;           /* Add spacing below labels */
-}
-
-/* Input fields in the second column */
-form input, form textarea {
-  grid-column: 2;                 /* Place inputs in the second column */
-  width: 100%;                    /* Make sure inputs take up full width */
-  padding: 0.5em;                 /* Add padding for usability */
-  box-sizing: border-box;          /* Ensure padding is included in width */
-}
-
-/* Submit button spans the entire row */
-form button {
-  grid-column: 1 / -1;            /* Make button span across both columns */
-  padding: 0.5em 1em;             /* Add padding for the button */
-  background-color: var(--color-accent); /* Accent color for the button */
-  color: white;                   /* Button text color */
-  border: none;                   /* Remove default button borders */
-  cursor: pointer;                /* Make it clickable */
-}
-
-form button:hover {
-  background-color: oklch(60% 50% 0); /* Darker shade for hover */
-}
-
-/* Projects Page Styling */
-
-/* Apply responsive grid to projects */
+/* Step 4.2: Responsive grid for projects */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Flexible grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Flexible grid */
   gap: 1rem;  /* Add space between articles */
 }
 
-/* Apply subgrid to align article contents */
+/* Step 4.3: Subgrid for article content alignment */
 .projects article {
   display: grid;
   grid-template-rows: subgrid;  /* Align rows within the grid */
@@ -103,20 +57,17 @@ form button:hover {
   margin: 0;  /* Reduce margin on headings */
 }
 
-/* Headings Styling */
-
-/* Make h1 significantly larger than h2 */
+/* Step 4.4: Styling headings */
 h1 {
   font-size: 400%;  /* Make h1 significantly larger than h2 */
 }
 
-/* Add consistent styling for all heading levels */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;           /* Smaller line height for headings */
   text-wrap: balance;         /* Prevent uneven lines */
 }
 
-/* Accent color for other elements */
+/* Accent color for buttons */
 button, input[type="submit"] {
   background-color: var(--color-accent); /* Accent-colored buttons */
   border: none;
