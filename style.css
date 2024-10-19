@@ -38,7 +38,7 @@ nav a:hover {
   background-color: #f0f0f0;     /* Optional light gray background on hover */
 }
 
-/* Form Layout with Subgrid */
+/* Form Layout with Grid */
 
 /* Inherit font for form controls */
 form input, form textarea, form button {
@@ -54,15 +54,13 @@ form {
   margin-bottom: 2rem;            /* Optional margin below the form */
 }
 
-/* Make the label a grid container itself with subgrid */
+/* Label styling */
 form label {
-  display: grid;
-  grid-template-columns: subgrid; /* Use the form's grid for the label */
-  grid-column: 1 / -1;            /* Make the label span both columns */
+  grid-column: 1;                /* Place labels in the first column */
   margin-bottom: 0.5em;           /* Add spacing below labels */
 }
 
-/* Input fields should be in the second column */
+/* Input fields in the second column */
 form input, form textarea {
   grid-column: 2;                 /* Place inputs in the second column */
   width: 100%;                    /* Make sure inputs take up full width */
@@ -70,9 +68,18 @@ form input, form textarea {
   box-sizing: border-box;          /* Ensure padding is included in width */
 }
 
-/* Make the submit button span the entire row */
+/* Submit button spans the entire row */
 form button {
   grid-column: 1 / -1;            /* Make button span across both columns */
+  padding: 0.5em 1em;             /* Add padding for the button */
+  background-color: var(--color-accent); /* Accent color for the button */
+  color: white;                   /* Button text color */
+  border: none;                   /* Remove default button borders */
+  cursor: pointer;                /* Make it clickable */
+}
+
+form button:hover {
+  background-color: oklch(60% 50% 0); /* Darker shade for hover */
 }
 
 /* Projects Page Styling */
