@@ -39,4 +39,32 @@ document.addEventListener("DOMContentLoaded", function() {
     mailtoLink = mailtoLink.slice(0, -1);
     location.href = mailtoLink;
   });
+
+  // Dynamic Navigation Creation
+  const pages = [
+    { url: '/portfolio/index.html', title: 'Home' },
+    { url: '/portfolio/projects/index.html', title: 'Projects' },
+    { url: '/portfolio/contact/index.html', title: 'Contact' },
+    { url: '/portfolio/cv/index.html', title: 'CV' },
+    { url: 'https://github.com/DutesMcGutes', title: 'GitHub Profile' }
+  ];
+
+  const nav = document.createElement('nav');
+  document.body.prepend(nav);
+
+  for (let page of pages) {
+    const a = document.createElement('a');
+    a.href = page.url;
+    a.textContent = page.title;
+
+    if (a.host === location.host && a.pathname === location.pathname) {
+      a.classList.add('current');
+    }
+
+    if (a.host !== location.host) {
+      a.target = "_blank";
+    }
+
+    nav.appendChild(a);
+  }
 });
