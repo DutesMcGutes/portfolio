@@ -47,9 +47,47 @@ nav a.current {
 /* Hover state */
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent); /* Accent color on hover */
+  background-color: #f0f0f0;     /* Optional light gray background on hover */
 }
 
 /* Projects grid */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill,
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Flexible grid */
+  gap: 1rem;  /* Add space between articles */
+}
+
+/* Subgrid for article content alignment */
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;  /* Align rows within the grid */
+  grid-row: span 3;             /* Make each article span 3 rows */
+  margin: 0;                    /* Remove margin for consistent alignment */
+}
+
+.projects h2 {
+  margin: 0;  /* Reduce margin on headings */
+}
+
+/* Styling headings */
+h1 {
+  font-size: 400%;  /* Make h1 significantly larger than h2 */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;           /* Smaller line height for headings */
+  text-wrap: balance;         /* Prevent uneven lines */
+}
+
+/* Accent color for buttons */
+button, input[type="submit"] {
+  background-color: var(--color-accent); /* Accent-colored buttons */
+  border: none;
+  color: white;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: oklch(60% 50% 0); /* Darker shade for hover */
+}
