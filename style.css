@@ -3,6 +3,8 @@
   --color-accent: oklch(65% 50% 0); /* Adjust this color as needed */
   --color-background-light: #ffffff;
   --color-background-dark: #1e1e1e;
+  --text-color-light: #000000;
+  --text-color-dark: #ffffff; /* Text color for dark mode */
   --border-color-light: oklch(50% 10% 200 / 40%);
   --border-color-dark: oklch(40% 15% 200 / 50%);
 }
@@ -12,14 +14,24 @@ html, body {
   accent-color: var(--color-accent); /* Inherit accent color across the page */
 }
 
+/* Light theme styles */
+[data-theme="light"] {
+  background-color: var(--color-background-light);
+  color: var(--text-color-light); /* Black text for light theme */
+  border-bottom-color: var(--border-color-light);
+}
+
+/* Dark theme styles */
 [data-theme="dark"] {
   background-color: var(--color-background-dark);
+  color: var(--text-color-dark); /* White text for dark theme */
   border-bottom-color: var(--border-color-dark);
 }
 
-[data-theme="light"] {
-  background-color: var(--color-background-light);
-  border-bottom-color: var(--border-color-light);
+/* Ensure the text color is applied throughout */
+body {
+  background-color: var(--color-background-light); /* Default to light theme background */
+  color: var(--text-color-light); /* Default to light theme text color */
 }
 
 /* Navigation styles */
@@ -91,3 +103,4 @@ button, input[type="submit"] {
 button:hover, input[type="submit"]:hover {
   background-color: oklch(60% 50% 0); /* Darker shade for hover */
 }
+
