@@ -1,13 +1,9 @@
-// Select all navigation links
-const navLinks = $$('nav a');
+console.log('IT’S ALIVE!');
 
-// Get the current page's link
-const currentLink = navLinks.find(
-  (a) => a.host === location.host && a.pathname === location.pathname
-);
-
-// Add 'current' class to the current link
-currentLink?.classList.add('current');
+// Function to select multiple elements
+function $$(selector, context = document) {
+  return Array.from(context.querySelectorAll(selector));
+}
 
 // Pages data array
 const pages = [
@@ -40,6 +36,7 @@ for (let page of pages) {
 
   nav.appendChild(a);
 }
+
 // Add dark mode switcher
 document.body.insertAdjacentHTML(
   'afterbegin',
@@ -75,14 +72,3 @@ function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
   }
 }
-const form = document.querySelector('.contact-form');
-form?.addEventListener('submit', function (event) {
-  event.preventDefault();
-  
-  const data = new FormData(form);
-  const action = form.getAttribute('action');
-  const queryString = new URLSearchParams(data).toString();
-
-  const mailtoLink = `${action}?${queryString}`;
-  location.href = mailtoLink; // Open email client with prefilled fields
-});

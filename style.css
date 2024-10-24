@@ -1,11 +1,25 @@
 /* Define an accent color for the entire document */
 :root {
   --color-accent: oklch(65% 50% 0); /* Adjust this color as needed */
+  --color-background-light: #ffffff;
+  --color-background-dark: #1e1e1e;
+  --border-color-light: oklch(50% 10% 200 / 40%);
+  --border-color-dark: oklch(40% 15% 200 / 50%);
 }
 
 /* Apply accent color to elements by default */
 html, body {
   accent-color: var(--color-accent); /* Inherit accent color across the page */
+}
+
+[data-theme="dark"] {
+  background-color: var(--color-background-dark);
+  border-bottom-color: var(--border-color-dark);
+}
+
+[data-theme="light"] {
+  background-color: var(--color-background-light);
+  border-bottom-color: var(--border-color-light);
 }
 
 /* Navigation styles */
@@ -14,7 +28,6 @@ nav {
   justify-content: space-between;/* Space out links */
   padding: 1rem 0;               /* Add padding */
   margin-bottom: 1rem;           /* Add margin to separate from content below */
-  border-bottom: 1px solid oklch(80% 3% 200); /* Cool gray border */
 }
 
 nav a {
@@ -28,70 +41,15 @@ nav a {
 /* Highlight the current page with a thick bottom border */
 nav a.current {
   font-weight: bold;             /* Bold for current link */
-  border-bottom: 0.4em solid oklch(80% 3% 200); /* Cool gray for current link */
-  padding-bottom: 0.1em;         /* Adjust padding to balance height */
+  border-bottom: 0.4em solid var(--color-accent); /* Accent color */
 }
 
 /* Hover state */
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent); /* Accent color on hover */
-  background-color: #f0f0f0;     /* Optional light gray background on hover */
 }
 
-/* Step 4.2: Responsive grid for projects */
+/* Projects grid */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Flexible grid */
-  gap: 1rem;  /* Add space between articles */
-}
-
-/* Step 4.3: Subgrid for article content alignment */
-.projects article {
-  display: grid;
-  grid-template-rows: subgrid;  /* Align rows within the grid */
-  grid-row: span 3;             /* Make each article span 3 rows */
-  margin: 0;                    /* Remove margin for consistent alignment */
-}
-
-.projects h2 {
-  margin: 0;  /* Reduce margin on headings */
-}
-
-/* Step 4.4: Styling headings */
-h1 {
-  font-size: 400%;  /* Make h1 significantly larger than h2 */
-}
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.1;           /* Smaller line height for headings */
-  text-wrap: balance;         /* Prevent uneven lines */
-}
-
-/* Accent color for buttons */
-button, input[type="submit"] {
-  background-color: var(--color-accent); /* Accent-colored buttons */
-  border: none;
-  color: white;
-  padding: 0.5em 1em;
-  cursor: pointer;
-}
-
-button:hover, input[type="submit"]:hover {
-  background-color: oklch(60% 50% 0); /* Darker shade for hover */
-}
-:root {
-  --border-color-light: oklch(50% 10% 200 / 40%);
-  --border-color-dark: oklch(40% 15% 200 / 50%);
-  --color-background-light: #ffffff;
-  --color-background-dark: #1e1e1e;
-}
-
-[data-theme="dark"] {
-  background-color: var(--color-background-dark);
-  border-bottom-color: var(--border-color-dark);
-}
-
-[data-theme="light"] {
-  background-color: var(--color-background-light);
-  border-bottom-color: var(--border-color-light);
-}
+  grid-template-columns: repeat(auto-fill,
