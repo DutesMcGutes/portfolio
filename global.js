@@ -18,10 +18,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Function to apply the selected theme
   function applyTheme(theme) {
+    console.log("Applying theme: ", theme);  // Debugging log
     if (theme === 'auto') {
-      document.documentElement.removeAttribute('data-theme');  // Auto detects the OS theme
+      document.documentElement.removeAttribute('data-theme');
+      console.log("Theme set to auto.");
     } else {
       document.documentElement.setAttribute('data-theme', theme);
+      console.log("Theme set to: ", theme);
     }
   }
 

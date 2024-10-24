@@ -17,11 +17,32 @@ body {
 
 /* Adaptive Dark Mode Styles */
 [data-theme="dark"] {
+  background-color: var(--color-background-dark); /* Dark theme background */
+  color: var(--text-color-dark); /* Dark theme text color */
+}
+
+[data-theme="dark"] body {
   background-color: var(--color-background-dark);
   color: var(--text-color-dark);
 }
 
-/* Navigation styles */
+[data-theme="dark"] nav {
+  background-color: var(--color-background-dark); /* Dark background for navigation */
+  border-bottom: 1px solid var(--border-color-dark);
+}
+
+[data-theme="dark"] a {
+  color: var(--text-color-dark); /* Ensure nav links are visible in dark mode */
+}
+
+[data-theme="dark"] h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color-dark); /* Headings should also use dark mode text color */
+}
+
+[data-theme="dark"] img {
+  /* If necessary, adjust the image or other media elements for dark mode */
+}
+
 nav {
   display: flex;
   justify-content: space-between;
