@@ -43,6 +43,7 @@ body {
   /* If necessary, adjust the image or other media elements for dark mode */
 }
 
+/* Navigation styles */
 nav {
   display: flex;
   justify-content: space-between;
@@ -132,4 +133,42 @@ nav a:hover {
   padding: 0.5rem;
   font-size: 1rem;
   margin-bottom: 1rem;
+}
+
+/* Grid layout for the projects page */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 1rem; /* Space between the grid items */
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 1200px;
+}
+
+/* Individual project cards */
+.project-card {
+  background-color: var(--color-background-light);
+  color: var(--text-color-light);
+  padding: 1rem;
+  border: 1px solid var(--border-color-light);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjustments for dark mode */
+[data-theme="dark"] .project-card {
+  background-color: var(--color-background-dark);
+  color: var(--text-color-dark);
+  border: 1px solid var(--border-color-dark);
+}
+
+/* Ensure text styles apply properly in dark mode */
+[data-theme="dark"] h3, [data-theme="dark"] p {
+  color: var(--text-color-dark);
 }
