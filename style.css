@@ -14,24 +14,78 @@ html, body {
   accent-color: var(--color-accent); /* Inherit accent color across the page */
 }
 
-/* Light theme styles */
 [data-theme="light"] {
   background-color: var(--color-background-light);
   color: var(--text-color-light); /* Black text for light theme */
   border-bottom-color: var(--border-color-light);
 }
 
-/* Dark theme styles */
 [data-theme="dark"] {
   background-color: var(--color-background-dark);
   color: var(--text-color-dark); /* White text for dark theme */
   border-bottom-color: var(--border-color-dark);
 }
 
-/* Ensure the text color is applied throughout */
 body {
   background-color: var(--color-background-light); /* Default to light theme background */
   color: var(--text-color-light); /* Default to light theme text color */
+}
+
+/* Contact form styling */
+.contact-form {
+  display: flex;
+  flex-direction: column;  /* Aligns form elements vertically */
+  gap: 1rem;               /* Adds space between form elements */
+  max-width: 600px;        /* Restrict the width of the form */
+  margin: 2rem auto;       /* Center the form and add some margin */
+}
+
+.contact-form label {
+  font-weight: bold;
+  color: var(--text-color-light);
+}
+
+.contact-form input[type="email"],
+.contact-form input[type="text"],
+.contact-form textarea {
+  background-color: #333333;  /* Dark background */
+  color: #f0f0f0;             /* Light text for better contrast */
+  padding: 0.5rem;
+  border: 1px solid #888888;  /* Slightly lighter border */
+  border-radius: 4px;
+  width: 100%;                /* Make the fields take full width */
+  font-size: 1rem;
+}
+
+.contact-form input[type="email"]:focus,
+.contact-form input[type="text"]:focus,
+.contact-form textarea:focus {
+  border-color: var(--color-accent);  /* Accent border on focus */
+  outline: none;
+}
+
+.contact-form button {
+  background-color: var(--color-accent); /* Accent-colored button */
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.contact-form button:hover {
+  background-color: oklch(60% 50% 0); /* Darker accent color on hover */
+}
+
+.contact-form textarea {
+  resize: vertical;  /* Allow vertical resizing */
+  min-height: 150px; /* Ensure the textarea is tall enough */
+}
+
+/* Adjust the text color in dark mode */
+[data-theme="dark"] .contact-form label {
+  color: var(--text-color-dark); /* White text in dark mode */
 }
 
 /* Navigation styles */
@@ -69,7 +123,6 @@ nav a:hover {
   gap: 1rem;  /* Add space between articles */
 }
 
-/* Subgrid for article content alignment */
 .projects article {
   display: grid;
   grid-template-rows: subgrid;  /* Align rows within the grid */
@@ -81,14 +134,12 @@ nav a:hover {
   margin: 0;  /* Reduce margin on headings */
 }
 
-/* Styling headings */
 h1 {
   font-size: 400%;  /* Make h1 significantly larger than h2 */
 }
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;           /* Smaller line height for headings */
-  text-wrap: balance;         /* Prevent uneven lines */
 }
 
 /* Accent color for buttons */
@@ -103,4 +154,3 @@ button, input[type="submit"] {
 button:hover, input[type="submit"]:hover {
   background-color: oklch(60% 50% 0); /* Darker shade for hover */
 }
-
