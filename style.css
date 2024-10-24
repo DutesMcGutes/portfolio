@@ -99,3 +99,16 @@ nav a:hover {
   color: #f0f0f0; /* Lighter text */
   border: 1px solid var(--border-color-dark); /* Lighter borders */
 }
+
+/* Styling for the Theme Switcher */
+.theme-switcher-label {
+  display: block;
+  margin: 1rem 0;
+  font-weight: bold;
+}
+
+.theme-switcher {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}

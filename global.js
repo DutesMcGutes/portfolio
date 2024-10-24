@@ -1,24 +1,25 @@
 document.addEventListener("DOMContentLoaded", function() {
   const form = document.querySelector('.contact-form');
-  const select = document.querySelector('#theme-switcher');
-  const savedTheme = localStorage.getItem('theme') || 'light'; // Default to light theme
+  const themeSwitcher = document.querySelector('#theme-switcher');
+  const savedTheme = localStorage.getItem('theme') || 'auto'; // Default to automatic
 
-  // Apply the saved or default theme
+  // Apply the saved or default theme on page load
   applyTheme(savedTheme);
-  if (select) {
-    select.value = savedTheme;
+  if (themeSwitcher) {
+    themeSwitcher.value = savedTheme;  // Set the dropdown to the saved theme
   }
 
-  // Event listener for theme switcher
-  select?.addEventListener('input', function (event) {
+  // Event listener for theme switcher dropdown
+  themeSwitcher?.addEventListener('input', function(event) {
     const theme = event.target.value;
     applyTheme(theme);
-    localStorage.setItem('theme', theme); // Save user preference
+    localStorage.setItem('theme', theme);  // Save the theme preference
   });
 
+  // Function to apply the selected theme
   function applyTheme(theme) {
     if (theme === 'auto') {
-      document.documentElement.removeAttribute('data-theme');
+      document.documentElement.removeAttribute('data-theme');  // Auto detects the OS theme
     } else {
       document.documentElement.setAttribute('data-theme', theme);
     }
